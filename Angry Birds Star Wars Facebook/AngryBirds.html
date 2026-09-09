@@ -11,7 +11,7 @@
     Learn more about Flex at http://flex.org 
     // -->
     <head>
-        <title></title>
+        <title>Angry Birds - Star Wars</title>
         <meta name="google" value="notranslate" />         
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
@@ -35,7 +35,22 @@
         <!-- END Browser History required section -->  
             
         <script type="text/javascript" src="swfobject.js"></script>
+        
+        <!-- Ruffle Flash Player Emulator (Local) -->
+        <script src="ruffle.js"></script>
+        
         <script type="text/javascript">
+            // Ruffle configuration for better Flash support
+            window.RufflePlayer = window.RufflePlayer || {};
+            window.RufflePlayer.config = {
+                logLevel: "info",
+                autoplay: "on",
+                allowFullscreen: true,
+                contextMenu: true,
+                showRuffleMenu: true,
+                preloadStrategy: "progressive"
+            };
+            
             // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
             var swfVersionStr = "11.0.0";
             // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
@@ -59,7 +74,9 @@
             // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
             swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
-        <script src=".ruffle.js"></script>
+        
+        <!-- Ruffle Setup Script -->
+        <script type="text/javascript" src="ruffle-setup.js"></script>
     </head>
     <body>
         <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
@@ -69,7 +86,7 @@
         <div id="flashContent">
             <p>
                 To view this page ensure that Adobe Flash Player version 
-                10.2.0 or greater is installed. 
+                10.2.0 or greater is installed, or your browser supports Ruffle Flash emulation.
             </p>
             <script type="text/javascript"> 
                 var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
